@@ -1,0 +1,28 @@
+{
+  "name": "@iondv/core",
+  "license": "Apache License 2.0",
+  "engines": {
+    "node": ">=13"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "bugs": {
+    "url": "https://github.com/iondv/framework/issues"
+  },
+  "private": true,
+  "repository": {
+    "url": "https://github.com/iondv/core.git",
+    "type": "git"
+  },
+  "homepage": "https://iondv.com",
+  "version": "2.0.0",
+  "dependencies": {
+    "@iondv/i18n": "iondv/i18n#semver:^0.0.1",
+    "fast-clone": "^1.5",
+    "js-yaml": "^3.13.1",
+    "lodash": "^4.17.20",
+    "merge": "^1.2.0",
+    "request": "^2.83.0"
+  }
+}
