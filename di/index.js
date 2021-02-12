@@ -4,8 +4,8 @@
 'use strict';
 const contexts = {};
 const clone = require('fast-clone');
-const {format} = require('util');
-const {t} = require('@iondv/i18n');
+const { format } = require('util');
+const { t } = require('@iondv/i18n');
 
 // jshint maxstatements: 35, maxcomplexity: 30, maxparams: 15
 
@@ -327,3 +327,5 @@ function extract(nm, src) {
 }
 
 module.exports.extract = extract;
+
+module.exports.alias = require('./scope-alias');
