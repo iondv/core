@@ -12,7 +12,7 @@ const { format } = require('util');
  * @param {String} baseDir
  */
 module.exports = function errorSetup(baseDir) {
-  baseDir = baseDir || path.normalize(path.join(__dirname, '..', 'strings'));
+  baseDir = baseDir || path.normalize(path.join(process.cwd(), 'strings'));
   const msgDir = path.join(baseDir, 'errors');
   if (!fs.existsSync(msgDir)) // eslint-disable-line no-sync
     throw new Error(format(t('Error message base does not exist in path "%s"'), baseDir));
