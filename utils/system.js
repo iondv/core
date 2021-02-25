@@ -4,7 +4,7 @@ const fs = require('fs');
 
 module.exports.toAbsolute = function (pth) {
   if (!path.isAbsolute(pth)) {
-    return path.normalize(path.join(__dirname, '..', pth));
+    return path.normalize(path.join(process.cwd(), pth));
   }
   return pth;
 };

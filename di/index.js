@@ -194,6 +194,7 @@ function loadComponent(name, component, scope, components, init, skip, cwd) {
  * @returns {Promise}
  */
 function di(context, struct, presets, parentContext, skip, cwd) {
+  let cwd = cwd || process.cwd();
   let components = clone(struct, false);
   let scope = presets || {};
   if (parentContext && contexts.hasOwnProperty(parentContext)) {
