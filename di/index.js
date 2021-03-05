@@ -189,12 +189,12 @@ function loadComponent(name, component, scope, components, init, skip, cwd) {
  * @param {{}} struct
  * @param {{}} [presets]
  * @param {String} [parentContext]
- * @param {String|Array} [extract]
+ * @param {String|Array} [extr]
  * @param {Array} [skip]
  * @param {String} [cwd]
  * @returns {Promise}
  */
-function di(context, struct, presets, parentContext, extract, skip, cwd) {
+function di(context, struct, presets, parentContext, extr, skip, cwd) {
   cwd = cwd || process.cwd();
   let components = clone(struct, false);
   let scope = presets || {};
@@ -229,8 +229,8 @@ function di(context, struct, presets, parentContext, extract, skip, cwd) {
     }
   }
 
-  if (Array.isArray(extract) ? extract.length : extract) {
-    src = extract(extract, src);
+  if (Array.isArray(extr) ? extr.length : extr) {
+    src = extract(extr, src);
   }
 
   for (let nm in src) {
