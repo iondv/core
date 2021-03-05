@@ -136,7 +136,7 @@ function processOptions(options, scope, components, init, skip, cwd) {
  * @returns {*}
  */
 function loadComponent(name, component, scope, components, init, skip, cwd) {
-  if (skip && skip.indexOf(name) !== -1) {
+  if (Array.isArray(skip) && skip.indexOf(name) !== -1) {
     return null;
   }
 
@@ -189,11 +189,12 @@ function loadComponent(name, component, scope, components, init, skip, cwd) {
  * @param {{}} struct
  * @param {{}} [presets]
  * @param {String} [parentContext]
+ * @param {String|Array} [extract]
+ * @param {String} [cwd]
  * @param {Array} [skip]
- * @param {String} cwd
  * @returns {Promise}
  */
-function di(context, struct, presets, parentContext, skip, cwd) {
+function di(context, struct, presets, parentContext, extract, cwd, skip) {
   cwd = cwd || process.cwd();
   let components = clone(struct, false);
   let scope = presets || {};
@@ -226,6 +227,10 @@ function di(context, struct, presets, parentContext, skip, cwd) {
     if (norm.hasOwnProperty(nm)) {
       src[nm] = norm[nm];
     }
+  }
+
+  if (Array.isArray(extract) ? extract.length : extract) {
+    src = extract(extract, src);
   }
 
   for (let nm in src) {
